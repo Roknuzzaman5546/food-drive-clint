@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { Authcontext } from "../../../Authprovider/Authprovider";
+import Swal from "sweetalert2";
 
 const Addfood = () => {
     const { user } = useContext(Authcontext);
-    console.log(user)
 
     const handleaddfoods = event => {
         event.preventDefault();
@@ -21,6 +21,26 @@ const Addfood = () => {
         const status = 'available';
         const foods = { useremail, username, userphoto, foodphoto, foodname, foodquantity, pickuplocation, expiredtime, additionalnotes, status }
         console.log(foods)
+        fetch('http://localhost:5000/foods', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(foods)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            if (data.insertedId) {
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Do you want to continue',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                })
+                form.reset();
+            }
+        })
     }
 
     return (
