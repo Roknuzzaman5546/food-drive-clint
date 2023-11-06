@@ -8,10 +8,12 @@ const Availablefoods = () => {
     const loadfoods = useLoaderData();
     const [foods, setFoods] = useState(loadfoods)
 
-    const handlesearch = () =>[
+    const handlesearch = name =>{
         console.log('search btn')
-        
-    ]
+        const inputvalue = document.getElementById('src-btn').value;      
+        const findfoods = loadfoods.filter(food => food.foodname == inputvalue)
+        setFoods(findfoods)
+    }
 
     const handlesort = () =>{
         loadfoods.sort((a,b) => b.expiredtime - a.expiredtime);
@@ -27,7 +29,7 @@ const Availablefoods = () => {
             </div>
                 <div className=' flex items-center justify-between gap-10 my-10'>
                     <div className=' flex items-center mr-10'>
-                        <input type="text" placeholder="Type here" className="input input-bordered w-80" />
+                        <input type="text" placeholder="Type here" id='src-btn' className="input input-bordered w-80" />
                         <h2 className='btn btn-outline' onClick={handlesearch}><BsSearch></BsSearch></h2>
                     </div>
                     <div>
