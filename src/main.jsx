@@ -16,6 +16,7 @@ import Login from './Componants/login&ragistration/Login.jsx';
 import Register from './Componants/login&ragistration/Register.jsx';
 import Home from './Componants/Pages/Home/Home.jsx';
 import Authprovider from './Authprovider/Authprovider.jsx';
+import Singlefoods from './Componants/Pages/Singlefoods/Singlefoods.jsx';
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,11 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>
+      },
+      {
+        path: '/foods/:id',
+        element: <Singlefoods></Singlefoods>,
+        loader: ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
       }
     ]
   },
