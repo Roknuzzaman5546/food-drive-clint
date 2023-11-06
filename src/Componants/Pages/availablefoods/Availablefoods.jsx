@@ -1,10 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Availabledetails from './Availabledetails';
 import { BsSearch, } from "react-icons/bs";
 
 const Availablefoods = () => {
-    const foods = useLoaderData();
+
+    const loadfoods = useLoaderData();
+    const [foods, setFoods] = useState(loadfoods)
+
+    const handlesearch = () =>[
+        console.log('search btn')
+        
+    ]
+
+    const handlesort = () =>{
+        loadfoods.sort((a,b) => b.expiredtime - a.expiredtime);
+        setFoods(loadfoods)
+    }
+
 
     return (
         <div className='mt-10'>
@@ -15,16 +28,16 @@ const Availablefoods = () => {
                 <div className=' flex items-center justify-between gap-10 my-10'>
                     <div className=' flex items-center mr-10'>
                         <input type="text" placeholder="Type here" className="input input-bordered w-80" />
-                        <h2 className='btn btn-outline'><BsSearch></BsSearch></h2>
+                        <h2 className='btn btn-outline' onClick={handlesearch}><BsSearch></BsSearch></h2>
                     </div>
                     <div>
-                        <button className=' btn btn-neutral'>Sort</button>
+                        <button className=' btn btn-neutral' onClick={handlesort}>Sort</button>
                     </div>
                 </div>
             <div className='grid md:grid-cols-3 grid-cols-1 gap-2 mt-5'>
                 {
                     foods.map(food => <Availabledetails
-                        food={food}
+                    food={food}
                     ></Availabledetails>)
                 }
             </div>
