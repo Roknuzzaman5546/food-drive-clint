@@ -10,13 +10,14 @@ import Errorpage from './Errorpage/Errorpage.jsx';
 import Mainoutlet from './Componants/Mainoutlet/Mainoutlet.jsx';
 import Availablefoods from './Componants/Pages/availablefoods/Availablefoods.jsx';
 import Addfood from './Componants/Pages/addfood/Addfood.jsx';
-import Managefoods from './Componants/Pages/managefoods/Managefoods.jsx';
+
 import Foodsrequest from './Componants/Pages/foodsrequest/Foodsrequest.jsx';
 import Login from './Componants/login&ragistration/Login.jsx';
 import Register from './Componants/login&ragistration/Register.jsx';
 import Home from './Componants/Pages/Home/Home.jsx';
 import Authprovider from './Authprovider/Authprovider.jsx';
 import Singlefoods from './Componants/Pages/Singlefoods/Singlefoods.jsx';
+import MyPage from './Componants/Pages/managefoods/MyPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -39,7 +40,8 @@ const router = createBrowserRouter([
       },
       {
         path: '/managefoods',
-        element: <Managefoods></Managefoods>
+        element: <MyPage></MyPage>,
+        loader: () => fetch('http://localhost:5000/foods')
       },
       {
         path: '/foodsrequest',

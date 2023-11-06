@@ -2,7 +2,7 @@ import { useLoaderData } from "react-router-dom";
 
 const Singlefoods = () => {
     const foods = useLoaderData();
-    const { _id, foodphoto, foodname, foodquantity, pickuplocation, expiredtime, additionalnotes, username, userphoto } = foods;
+    const { _id, foodphoto, foodname, foodquantity, pickuplocation, expiredtime,  username, userphoto } = foods;
 
     return (
         <div>
