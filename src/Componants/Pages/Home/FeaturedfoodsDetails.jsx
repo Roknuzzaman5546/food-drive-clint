@@ -15,8 +15,8 @@ const FeaturedfoodsDetails = ({ foods }) => {
                         </div>
                     </div>
                     <h2 className="card-title text-3xl font-bold mt-4">{foodname}</h2>
-                    <p className=" font-bold"><span className=" font-bold text-xl">Foodquantity</span>: {foodquantity}</p>
-                    <p className=" font-bold"><span className=" font-bold text-xl">Expiredtime</span>: {expiredtime}</p>
+                    <p className=" font-bold"><span className=" font-bold text-xl">Foodquantity</span>: {foodquantity} Person</p>
+                    <p className=" font-bold"><span className=" font-bold text-xl">Expiredtime</span>: {expiredtime} hour</p>
                     <p className=" font-bold"><span className=" font-bold text-xl">Location</span>: {pickuplocation}</p>
                     <p>{additionalnotes}</p>
                     <div className="card-actions mt-4">

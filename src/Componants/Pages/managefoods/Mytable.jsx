@@ -1,46 +1,19 @@
-import React from 'react';
-import { useTable } from 'react-table';
+import { useContext } from "react";
+import MyPage from "./MyPage";
+import { useLoaderData } from "react-router-dom";
 
-function MyTableComponent({ data, columns }) {
-  // Create a table instance using the data and columns you want to display
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    rows,
-    prepareRow,
-  } = useTable({
-    columns,
-    data,
-  });
+const Mytable = () => {
+    const {user} = useContext()
+    const foods = useLoaderData()
+    const data = foods.map(food => food.useremail ==  user.email)
+    console.log(data)
 
-  return (
-    <table {...getTableProps()}>
-      <thead>
-        {headerGroups.map(headerGroup => (
-          <tr {...headerGroup.getHeaderGroupProps()}>
-            {headerGroup.headers.map(column => (
-              <th {...column.getHeaderProps()}>{column.render('Header')}</th>
-            ))}
-          </tr>
-        ))}
-      </thead>
-      <tbody {...getTableBodyProps()}>
-        {rows.map(row => {
-          prepareRow(row);
-          return (
-            <tr {...row.getRowProps()}>
-              {row.cells.map(cell => {
-                return (
-                  <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
-                );
-              })}
-            </tr>
-          );
-        })}
-      </tbody>
-    </table>
-  );
-}
+    return (
+        <div>
+            <h1>Dynamic Table Example</h1>
+            <MyPage data={data}></MyPage>
+        </div>
+    );
+};
 
-export default MyTableComponent;
+export default Mytable;
