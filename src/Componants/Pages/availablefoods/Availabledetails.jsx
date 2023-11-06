@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 
-const FeaturedfoodsDetails = ({ foods }) => {
-    const { _id, foodphoto, foodname, foodquantity, pickuplocation, expiredtime, additionalnotes, username, userphoto } = foods;
+const Availabledetails = ({ food }) => {
+    const { _id, foodphoto, foodname, foodquantity, pickuplocation, expiredtime, additionalnotes, username, userphoto } = food;
+    
     return (
         <div>
             <div className="card  bg-purple-200 shadow-xl">
@@ -20,7 +21,7 @@ const FeaturedfoodsDetails = ({ foods }) => {
                     <p className=" font-bold"><span className=" font-bold text-xl">Location</span>: {pickuplocation}</p>
                     <p>{additionalnotes}</p>
                     <div className="card-actions mt-4">
-                        <Link to={`availablefoods/foods/${_id}`}><button className="btn btn-primary">Veiw details</button></Link>
+                        <Link to={`foods/${_id}`}><button className="btn btn-primary">Veiw details</button></Link>
                     </div>
                 </div>
             </div>
@@ -28,4 +29,4 @@ const FeaturedfoodsDetails = ({ foods }) => {
     );
 };
 
-export default FeaturedfoodsDetails;
+export default Availabledetails;

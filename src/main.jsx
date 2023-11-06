@@ -30,7 +30,8 @@ const router = createBrowserRouter([
       },
       {
         path: '/availablefoods',
-        element: <Availablefoods></Availablefoods>
+        element: <Availablefoods></Availablefoods>,
+        loader: () => fetch('http://localhost:5000/foods')
       },
       {
         path: '/addfood',
@@ -53,7 +54,7 @@ const router = createBrowserRouter([
         element: <Register></Register>
       },
       {
-        path: '/foods/:id',
+        path: '/availablefoods/foods/:id',
         element: <Singlefoods></Singlefoods>,
         loader: ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
       }
