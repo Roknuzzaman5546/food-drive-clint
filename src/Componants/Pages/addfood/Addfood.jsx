@@ -15,11 +15,11 @@ const Addfood = () => {
         const pickuplocation = form.pickuplocation.value;
         const expiredtime = form.expiredtime.value;
         const additionalnotes = form.additionalnotes.value;
-        const useremail = user.email;
-        const username = user.displayName;
-        const userphoto = user.photoURL;
+        const donaremail = user.email;
+        const donarname = user.displayName;
+        const donarphoto = user.photoURL;
         const status = 'available';
-        const foods = { useremail, username, userphoto, foodphoto, foodname, foodquantity, pickuplocation, expiredtime, additionalnotes, status }
+        const foods = { donaremail: donaremail, donarname, donarphoto, foodphoto, foodname, foodquantity, pickuplocation, expiredtime, additionalnotes, status }
         console.log(foods)
         fetch('http://localhost:5000/foods', {
             method: 'POST',

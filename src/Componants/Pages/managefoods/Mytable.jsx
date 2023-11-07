@@ -5,7 +5,7 @@ import { useLoaderData } from "react-router-dom";
 const Mytable = () => {
     const {user} = useContext()
     const foods = useLoaderData()
-    const data = foods.map(food => food.useremail ==  user.email)
+    const data = foods.map(food => food.donaremail ==  user.email)
     console.log(data)
 
     return (

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const Availabledetails = ({ food }) => {
-    const { _id, foodphoto, foodname, foodquantity, pickuplocation, expiredtime, additionalnotes, username, userphoto } = food;
+    const { _id, foodphoto, foodname, foodquantity, pickuplocation, expiredtime, additionalnotes, donarname, donarphoto } = food;
     
     
     return (
@@ -12,8 +12,8 @@ const Availabledetails = ({ food }) => {
                     <div className=" border-2 border-teal-500 py-5 px-12 rounded-lg">
                         <h2 className=" text-xl font-bold">Donator</h2>
                         <div className=" flex items-center gap-10 mt-4">
-                            <img className="w-14 rounded-full" src={userphoto} alt="" />
-                            <p className=" font-bold">{username}</p>
+                            <img className="w-14 rounded-full" src={donarphoto} alt="" />
+                            <p className=" font-bold">{donarname}</p>
                         </div>
                     </div>
                     <h2 className="card-title text-3xl font-bold mt-4">{foodname}</h2>

@@ -8,7 +8,7 @@ const Availablefoods = () => {
     const loadfoods = useLoaderData();
     const [foods, setFoods] = useState(loadfoods)
 
-    const handlesearch = name =>{
+    const handlesearch = () =>{
         console.log('search btn')
         const inputvalue = document.getElementById('src-btn').value;      
         const findfoods = loadfoods.filter(food => food.foodname == inputvalue)
