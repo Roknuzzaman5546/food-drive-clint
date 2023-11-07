@@ -1,23 +1,9 @@
 import React from 'react';
 import { AiFillEdit } from "react-icons/ai";
+import { Link } from 'react-router-dom';
 
 const Mytable = ({ food }) => {
     const { _id, donaremail, donarname, donarphoto, foodphoto, foodname, foodquantity, pickuplocation, expiredtime, additionalnotes, status } = food;
-
-    const handleupdate = (id) =>{
-        fetch(`http://localhost:5000/requestfoods/${id}`,{
-            method: 'PATCH',
-            headers: {
-                'content-type' : 'application/json'
-            },
-            body: JSON.stringify()
-        })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-        })
-        console.log('handle update submit')
-    }
 
     return (
         <tbody>
@@ -47,7 +33,7 @@ const Mytable = ({ food }) => {
                 <td>{expiredtime}</td>
                 <td>{foodquantity}</td>
                 <th>
-                    <button className="btn btn-ghost btn-circle" onClick={() => handleupdate(_id)}><AiFillEdit></AiFillEdit></button>
+                    <Link to={`/foods/${_id}`}><button className="btn btn-ghost btn-circle"><AiFillEdit></AiFillEdit></button></Link>
                 </th>
                 <th>
                     <button className="btn btn-circle">

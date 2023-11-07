@@ -18,6 +18,8 @@ import Home from './Componants/Pages/Home/Home.jsx';
 import Authprovider from './Authprovider/Authprovider.jsx';
 import Singlefoods from './Componants/Pages/Singlefoods/Singlefoods.jsx';
 import MyPage from './Componants/Pages/managefoods/MyPage.jsx';
+import Updatefoods from './Componants/Pages/managefoods/Updatefoods.jsx';
+import Privet from './Componants/Privetrout/Privet.jsx';
 
 const router = createBrowserRouter([
   {
@@ -35,16 +37,16 @@ const router = createBrowserRouter([
       },
       {
         path: '/addfood',
-        element: <Addfood></Addfood>
+        element: <Privet><Addfood></Addfood></Privet>
       },
       {
         path: '/managefoods',
-        element: <MyPage></MyPage>,
+        element: <Privet><MyPage></MyPage></Privet>,
         loader: () => fetch('http://localhost:5000/foods')
       },
       {
         path: '/foodsrequest',
-        element: <Foodsrequest></Foodsrequest>,
+        element: <Privet><Foodsrequest></Foodsrequest></Privet>,
         loader: () => fetch('http://localhost:5000/requestfoods')
       },
       {
@@ -58,6 +60,11 @@ const router = createBrowserRouter([
       {
         path: '/availablefoods/foods/:id',
         element: <Singlefoods></Singlefoods>,
+        loader: ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
+      },
+      {
+        path: '/foods/:id',
+        element: <Updatefoods></Updatefoods>,
         loader: ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
       }
     ]

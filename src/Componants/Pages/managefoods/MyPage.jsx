@@ -7,7 +7,6 @@ const MyPage = () => {
   const { user } = useContext(Authcontext);
   const loaderfoods = useLoaderData();
   const filterfoods = loaderfoods.filter(food => food.donaremail == user.email)
-  console.log(filterfoods)
 
   return (
     <div>

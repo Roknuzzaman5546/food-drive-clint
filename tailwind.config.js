@@ -5,7 +5,12 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        rancho: "'Rancho', cursive",
+        parmanent: "'Permanent Marker', cursive"
+      },
+    },
   },
   plugins: [require("daisyui")],
 }
