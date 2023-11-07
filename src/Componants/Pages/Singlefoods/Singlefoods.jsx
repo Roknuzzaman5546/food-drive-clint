@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 const Singlefoods = () => {
     const { user } = useContext(Authcontext)
     const foods = useLoaderData();
-    const { _id, foodphoto, foodname, foodquantity, pickuplocation, expiredtime, donarname, donarphoto, donaremail, additionalnotes } = foods;
+    const { _id, foodphoto, foodname, foodquantity, pickuplocation, expiredtime, donarname, donarphoto, donaremail, additionalnotes, status} = foods;
 
     const handlerequest = event => {
         event.preventDefault();
@@ -16,13 +16,13 @@ const Singlefoods = () => {
         const foodid = form.foodid.value;
         const donaremail = form.donaremail.value;
         const donarname = form.donarname.value;
-        const useremail = form.useremal.value;
+        const requestedemail = form.useremal.value;
         const requestdate = form.requestdate.value;
         const pickuplocation = form.pickuplocation.value;
         const expireddate = form.expireddate.value;
         const additionalnotes = form.additionalnotes.value;
         const donationmony = form.donationmony.value;
-        const requestfoods = { foodphoto, foodname, foodid, donaremail, donarname, useremail, requestdate, pickuplocation, expireddate, additionalnotes, donationmony }
+        const requestfoods = { foodphoto, foodname, foodid, donaremail, donarname, requestedemail, requestdate, pickuplocation, expireddate, additionalnotes, donationmony, status }
         fetch('http://localhost:5000/requestfoods', {
             method: 'POST',
             headers: {
@@ -150,17 +150,17 @@ const Singlefoods = () => {
                                             <input type="text" name="donationmony" placeholder="donation mony" className="file-input file-input-bordered w-full" />
                                         </div>
                                     </div>
-                                    <div className="modal-action">
-                                        <form method="dialog">
-                                            <div className="form-control w-full mt-4">
-                                                <input type="submit" value="Request" className=" btn file-input-bordered w-full" />
-                                            </div>
-                                        </form>
+                                    <div className="form-control w-full mt-4">
+                                        <input type="submit" value="Request" className=" btn file-input-bordered w-full" />
                                     </div>
                                 </form>
+                                <div className="modal-action">
+                                    <form method="dialog">
+                                        <button className="btn">Close</button>
+                                    </form>
+                                </div>
                             </div>
                         </dialog>
-
                     </div>
                 </div>
             </div>
