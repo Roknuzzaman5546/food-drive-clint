@@ -37,7 +37,7 @@ const Navbar = () => {
                     </div>
                     <div className=' flex items-center gap-2'>
                         <img className='w-12 h-12 border-2 border-blue-400 rounded-full' src={logo} alt="" />
-                        <a className="btn btn-ghost normal-case text-xl">Food drive</a>
+                        <a className="btn btn-ghost normal-case text-xl"><Link to='/'>Food drive</Link></a>
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">

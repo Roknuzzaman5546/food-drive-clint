@@ -19,7 +19,7 @@ const Addfood = () => {
         const donarname = user.displayName;
         const donarphoto = user.photoURL;
         const status = 'available';
-        const foods = { donaremail: donaremail, donarname, donarphoto, foodphoto, foodname, foodquantity, pickuplocation, expiredtime, additionalnotes, status }
+        const foods = {  donaremail, donarname, donarphoto, foodphoto, foodname, foodquantity, pickuplocation, expiredtime, additionalnotes, status }
         console.log(foods)
         fetch('http://localhost:5000/foods', {
             method: 'POST',

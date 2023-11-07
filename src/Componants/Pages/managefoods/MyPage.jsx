@@ -1,71 +1,62 @@
-import React from "react";
-import { useTable } from "react-table";
+import React, { useContext } from 'react';
+import Mytable from './Mytable';
+import { useLoaderData } from 'react-router-dom';
+import { Authcontext } from '../../../Authprovider/Authprovider';
 
-const FoodTable = ({ data }) => {
-  const columns = React.useMemo(
-    () => [
-      {
-        Header: "Food Name",
-        accessor: "foodname",
-      },
-      {
-        Header: "Quantity",
-        accessor: "foodquantity",
-      },
-      {
-        Header: "Pickup Location",
-        accessor: "pickuplocation",
-      },
-      {
-        Header: "Expired Time",
-        accessor: "expiredtime",
-      },
-      {
-        Header: "Status",
-        accessor: "status",
-      },
-    ],
-    []
-  );
-
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    rows,
-    prepareRow,
-  } = useTable({
-    columns,
-    data,
-  });
+const MyPage = () => {
+  const { user } = useContext(Authcontext);
+  const loaderfoods = useLoaderData();
+  const filterfoods = loaderfoods.filter(food => food.donaremail == user.email)
+  console.log(filterfoods)
 
   return (
-    <table {...getTableProps()} className="table">
-      <thead>
-        {headerGroups.map((headerGroup) => (
-          <tr {...headerGroup.getHeaderGroupProps()}>
-            {headerGroup.headers.map((column) => (
-              <th {...column.getHeaderProps()}>{column.render("Header")}</th>
-            ))}
-          </tr>
-        ))}
-      </thead>
-      <tbody {...getTableBodyProps()}>
-        {rows.map((row) => {
-          prepareRow(row);
-          return (
-            <tr {...row.getRowProps()}>
-              {row.cells.map((cell) => {
-                return (
-                  <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
-                );
-              })}
+    <div>
+      <div className="overflow-x-auto">
+        <table className="table">
+          {/* head */}
+          <thead>
+            <tr>
+              <th>
+                <label>
+                  <input type="checkbox" className="checkbox" />
+                </label>
+              </th>
+              <th>Name</th>
+              <th>Picup location</th>
+              <th>Expired time</th>
+              <th>Food quantity</th>
+              <th>Update</th>
+              <th>Delete</th>
             </tr>
-          );
-        })}
-      </tbody>
-    </table>
+          </thead>
+          {/* foot */}
+          {
+
+            filterfoods.map(food => <Mytable
+              key={food._id}
+              food={food}
+            ></Mytable>)
+          }
+        </table>
+      </div>
+    </div>
   );
 };
 
-export default FoodTable;
+export default MyPage;
+
+
+
+// import React from 'react';
+// import FoodTable from './Mytable';
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <h1>Food Donation Table</h1>
+//       <FoodTable></FoodTable>
+//     </div>
+//   );
+// }
+
+// export default App;
