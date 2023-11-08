@@ -1,9 +1,39 @@
 import React from 'react';
 import { AiFillEdit } from "react-icons/ai";
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
-const Mytable = ({ food }) => {
+const Mytable = ({ food, setfoods, filterfoods }) => {
     const { _id, donaremail, donarname, donarphoto, foodphoto, foodname, foodquantity, pickuplocation, expiredtime, additionalnotes, status } = food;
+
+    const handledelete = id => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then(() => {
+            fetch(`http://localhost:5000/foods/${id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    if (data.deletedCount > 0) {
+                        Swal.fire(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                        )
+                    }
+                    const remaing = filterfoods.filter(cof => cof._id !== id)
+                    setfoods(remaing)
+                })
+        })
+    }
 
     return (
         <tbody>
@@ -36,10 +66,11 @@ const Mytable = ({ food }) => {
                     <Link to={`/foods/${_id}`}><button className="btn btn-ghost btn-circle"><AiFillEdit></AiFillEdit></button></Link>
                 </th>
                 <th>
-                    <button className="btn btn-circle">
+                    <button className="btn btn-circle" onClick={() => handledelete(_id)}>
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
                     </button>
                 </th>
+                <Link to={`manage/${_id}`}><td className='btn'>Manage</td></Link>
             </tr>
         </tbody>
     );

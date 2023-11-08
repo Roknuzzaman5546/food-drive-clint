@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import loginimg from '../../assets/login.jpg'
 import { useContext } from 'react';
 import { Authcontext } from '../../Authprovider/Authprovider';
@@ -6,6 +6,9 @@ import Swal from 'sweetalert2';
 
 const Register = () => {
     const { register } = useContext(Authcontext)
+    const navigate = useNavigate();
+    const location = useLocation();
+
 
     const handleRegister = event => {
         event.preventDefault();
@@ -25,6 +28,9 @@ const Register = () => {
                     })
                 }
                 form.reset();
+                setTimeout(() => {
+                    navigate(location?.state ? location.state : '/')
+                }, 1500)
             })
             .catch(error => {
                 console.log(error.message)

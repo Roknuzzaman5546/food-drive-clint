@@ -1,10 +1,12 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import loginimg from '../../assets/login.jpg'
 import { useContext } from 'react';
 import { Authcontext } from '../../Authprovider/Authprovider';
 import Swal from 'sweetalert2';
 const Login = () => {
     const { signin, googlelogin } = useContext(Authcontext)
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const handleLogin = event => {
         event.preventDefault();
@@ -22,6 +24,9 @@ const Login = () => {
                         confirmButtonText: 'Cool'
                     })
                     form.reset();
+                    setTimeout(() => {
+                        navigate(location?.state ? location.state : '/')
+                    }, 1500)
                 }
             })
             .catch(error => {
@@ -29,22 +34,25 @@ const Login = () => {
             })
     }
 
-    const handleGooglelogin = () =>{
+    const handleGooglelogin = () => {
         googlelogin()
-        .then(result =>{
-            console.log(result.user)
-            if (result.user) {
-                Swal.fire({
-                    title: 'Success!',
-                    text: 'Do you want to continue',
-                    icon: 'success',
-                    confirmButtonText: 'Cool'
-                })
-            }
-        })
-        .catch(error =>{
-            console.log(error)
-        })
+            .then(result => {
+                console.log(result.user)
+                if (result.user) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Do you want to continue',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+                    setTimeout(() => {
+                        navigate(location?.state ? location.state : '/')
+                    }, 1500)
+                }
+            })
+            .catch(error => {
+                console.log(error)
+            })
     }
 
     return (

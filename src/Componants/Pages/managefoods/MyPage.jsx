@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Mytable from './Mytable';
 import { useLoaderData } from 'react-router-dom';
 import { Authcontext } from '../../../Authprovider/Authprovider';
@@ -7,6 +7,7 @@ const MyPage = () => {
   const { user } = useContext(Authcontext);
   const loaderfoods = useLoaderData();
   const filterfoods = loaderfoods.filter(food => food.donaremail == user.email)
+  const [foods, setfoods] = useState(filterfoods);
 
   return (
     <div>
@@ -26,14 +27,17 @@ const MyPage = () => {
               <th>Food quantity</th>
               <th>Update</th>
               <th>Delete</th>
+              <th>Manage</th>
             </tr>
           </thead>
           {/* foot */}
           {
 
-            filterfoods.map(food => <Mytable
+            foods.map(food => <Mytable
               key={food._id}
               food={food}
+              setfoods={setfoods}
+              filterfoods={filterfoods}
             ></Mytable>)
           }
         </table>

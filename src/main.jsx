@@ -10,7 +10,6 @@ import Errorpage from './Errorpage/Errorpage.jsx';
 import Mainoutlet from './Componants/Mainoutlet/Mainoutlet.jsx';
 import Availablefoods from './Componants/Pages/availablefoods/Availablefoods.jsx';
 import Addfood from './Componants/Pages/addfood/Addfood.jsx';
-
 import Foodsrequest from './Componants/Pages/foodsrequest/Foodsrequest.jsx';
 import Login from './Componants/login&ragistration/Login.jsx';
 import Register from './Componants/login&ragistration/Register.jsx';
@@ -20,6 +19,7 @@ import Singlefoods from './Componants/Pages/Singlefoods/Singlefoods.jsx';
 import MyPage from './Componants/Pages/managefoods/MyPage.jsx';
 import Updatefoods from './Componants/Pages/managefoods/Updatefoods.jsx';
 import Privet from './Componants/Privetrout/Privet.jsx';
+import Managesingle from './Componants/Pages/managefoods/Managesingle.jsx';
 
 const router = createBrowserRouter([
   {
@@ -59,12 +59,17 @@ const router = createBrowserRouter([
       },
       {
         path: '/availablefoods/foods/:id',
-        element: <Singlefoods></Singlefoods>,
+        element: <Privet><Singlefoods></Singlefoods></Privet>,
         loader: ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
       },
       {
         path: '/foods/:id',
-        element: <Updatefoods></Updatefoods>,
+        element: <Privet><Updatefoods></Updatefoods></Privet>,
+        loader: ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
+      },
+      {
+        path: '/manage/:id',
+        element: <Managesingle></Managesingle>,
         loader: ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
       }
     ]

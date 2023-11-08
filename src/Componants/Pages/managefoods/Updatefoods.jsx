@@ -19,7 +19,7 @@ const Updatefoods = () => {
         const donarname = form.donarname.value;
         const donarphoto = form.donarphoto.value;
         const foods = { donaremail, donarname, donarphoto, foodphoto, foodname, foodquantity, pickuplocation, expiredtime, additionalnotes }
-        fetch(`http://localhost:5000/requestfoods/${_id}`, {
+        fetch(`http://localhost:5000/foods/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

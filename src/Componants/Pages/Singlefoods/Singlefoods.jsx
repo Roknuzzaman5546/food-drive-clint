@@ -16,13 +16,15 @@ const Singlefoods = () => {
         const foodid = form.foodid.value;
         const donaremail = form.donaremail.value;
         const donarname = form.donarname.value;
+        const requestedPhoto = user.photoURL;
+        const requestedname = user.displayName;
         const requestedemail = form.useremal.value;
         const requestdate = form.requestdate.value;
         const pickuplocation = form.pickuplocation.value;
         const expireddate = form.expireddate.value;
         const additionalnotes = form.additionalnotes.value;
         const donationmony = form.donationmony.value;
-        const requestfoods = { foodphoto, foodname, foodid, donaremail, donarname, requestedemail, requestdate, pickuplocation, expireddate, additionalnotes, donationmony, status }
+        const requestfoods = { foodphoto, foodname, foodid, donaremail, donarname, requestedPhoto, requestedname, requestedemail, requestdate, pickuplocation, expireddate, additionalnotes, donationmony, status }
         fetch('http://localhost:5000/requestfoods', {
             method: 'POST',
             headers: {
