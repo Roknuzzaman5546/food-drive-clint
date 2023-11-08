@@ -7,7 +7,6 @@ const Foodsrequest = () => {
     const { user } = useContext(Authcontext)
     const requestfoods = useLoaderData();
     const filterfoods = requestfoods.filter(food => food.requestedemail == user.email)
-    console.log(filterfoods)
     return (
         <div className="my-10">
             <div>
