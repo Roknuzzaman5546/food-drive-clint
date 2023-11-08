@@ -5,14 +5,14 @@ import { Authcontext } from '../../../Authprovider/Authprovider';
 const Navbar = () => {
 
     const { user, logOut } = useContext(Authcontext)
-    const handlesignOut = () =>{
+    const handlesignOut = () => {
         logOut()
-        .then(result =>{
-            console.log(result.user)
-        })
-        .catch(error =>{
-            console.log(error)
-        })
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.log(error)
+            })
     }
 
     const links = <>
@@ -25,7 +25,7 @@ const Navbar = () => {
 
     return (
         <div className='mb-5'>
-            <div className="navbar bg-base-100">
+            <div className="navbar bg-gray-400 text-pink-600 rounded-md">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -37,7 +37,7 @@ const Navbar = () => {
                     </div>
                     <div className=' flex items-center gap-2'>
                         <img className='w-12 h-12 border-2 border-blue-400 rounded-full' src={logo} alt="" />
-                        <a className="btn btn-ghost normal-case text-xl font-parmanent"><Link to='/'>Food drive</Link></a>
+                        <a className="btn text-pink-500 btn-ghost normal-case text-xl font-parmanent"><Link to='/'>Food drive</Link></a>
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -46,11 +46,18 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    { user ? 
-                        <Link><button className='btn' onClick={handlesignOut}>Logout</button></Link>
-                        :
-                        <Link to='/login'><button className='btn'>Login</button></Link>
-                    }
+                    <div className=' flex items-center gap-2 md:flex-row flex-col'>
+                        <h2>
+                            {user?.email}
+                        </h2>
+                        <div>
+                            {user ?
+                                <Link><button className='btn' onClick={handlesignOut}>Logout</button></Link>
+                                :
+                                <Link to='/login'><button className='btn'>Login</button></Link>
+                            }
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

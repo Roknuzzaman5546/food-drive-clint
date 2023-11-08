@@ -22,7 +22,7 @@ const Addfood = () => {
         const status = 'available';
         const foods = {  donaremail, donarname, donarphoto, foodphoto, foodname, foodquantity, pickuplocation, expiredtime, additionalnotes, status }
         console.log(foods)
-        fetch('http://localhost:5000/foods', {
+        fetch('https://assingment11-projects-server.vercel.app/foods', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

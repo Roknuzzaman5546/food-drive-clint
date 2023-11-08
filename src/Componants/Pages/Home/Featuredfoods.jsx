@@ -4,9 +4,8 @@ import { Link } from "react-router-dom";
 
 const Featuredfoods = () => {
     const [featuredfoods, setfeaturedfoods] = useState([]);
-    console.log(featuredfoods)
 
-    const url = 'http://localhost:5000/foods';
+    const url = 'https://assingment11-projects-server.vercel.app/foods';
 
     useEffect(() =>{
         fetch(url)
@@ -15,8 +14,6 @@ const Featuredfoods = () => {
     }, [url])
     
     const sortsfoods = [...featuredfoods].sort((a, b) => b.foodquantity - a.foodquantity);
-    console.log(sortsfoods)
-
     return (
         <div className="mt-10">
             <div className=" text-center">

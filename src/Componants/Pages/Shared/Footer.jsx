@@ -2,7 +2,7 @@ import logo from '../../../assets/logo.jpg'
 const Footer = () => {
     return (
         <div className='mt-10'>
-            <footer className="footer p-10 bg-base-200 text-base-content">
+            <footer className="footer p-10 bg-gray-700 text-pink-600 font-bold font-parmanent">
                 <aside className=' flex flex-col items-center'>
                     <img className='w-20 h-20 border-2 border-blue-400 rounded-full bg-gray-200' src={logo} alt="" />
                     <div><p>ACME Industries Ltd.<br />Providing reliable tech since 1992</p></div>

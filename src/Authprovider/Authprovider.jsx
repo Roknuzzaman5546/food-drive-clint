@@ -32,19 +32,11 @@ const Authprovider = ({ children }) => {
             setUser(currentuser)
             setLoading(false)
             if (currentuser) {
-                axios.post('http://localhost:5000/jwt', loggedemail, { withCredentials: true })
+                axios.post('https://assingment11-projects-server.vercel.app/jwt', loggedemail, { withCredentials: true })
                     .then(res => {
                         console.log('response token', res.data)
                     })
             }
-            else {
-                axios.post('http://localhost:5000/logout', loggedemail, { withCredentials: true })
-                    .then(res => {
-                        AiTwotoneFileZip
-                        console.log(res.data)
-                    })
-            }
-
         })
         return () => {
             unsubscribe()

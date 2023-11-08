@@ -7,10 +7,10 @@ const Availablefoods = () => {
     const [foods, setFoods] = useState([]);
     console.log(foods)
 
-    const url = 'http://localhost:5000/foods';
+    const url = 'https://assingment11-projects-server.vercel.app/foods';
 
     useEffect(() => {
-        fetch(url, {Credential: 'include'} )
+        fetch(url)
             .then(res => res.json())
             .then(data => setFoods(data))
     }, [])

@@ -42,12 +42,12 @@ const router = createBrowserRouter([
       {
         path: '/managefoods',
         element: <Privet><MyPage></MyPage></Privet>,
-        loader: () => fetch('http://localhost:5000/foods')
+        loader: () => fetch('https://assingment11-projects-server.vercel.app/foods')
       },
       {
         path: '/foodsrequest',
         element: <Privet><Foodsrequest></Foodsrequest></Privet>,
-        loader: () => fetch('http://localhost:5000/requestfoods')
+        loader: () => fetch('https://assingment11-projects-server.vercel.app/requestfoods')
       },
       {
         path: '/login',
@@ -60,17 +60,17 @@ const router = createBrowserRouter([
       {
         path: '/availablefoods/foods/:id',
         element: <Privet><Singlefoods></Singlefoods></Privet>,
-        loader: ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
+        loader: ({params}) => fetch(`https://assingment11-projects-server.vercel.app/foods/${params.id}`)
       },
       {
         path: '/foods/:id',
         element: <Privet><Updatefoods></Updatefoods></Privet>,
-        loader: ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
+        loader: ({params}) => fetch(`https://assingment11-projects-server.vercel.app/foods/${params.id}`)
       },
       {
         path: '/manage/:id',
         element: <Managesingle></Managesingle>,
-        loader: ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
+        loader: ({params}) => fetch(`https://assingment11-projects-server.vercel.app/foods/${params.id}`)
       }
     ]
   },

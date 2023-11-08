@@ -8,7 +8,7 @@ const Managesingle = () => {
     const [requestfoods, setrequestfoods] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/requestfoods')
+        fetch('https://assingment11-projects-server.vercel.app/requestfoods')
             .then(res => res.json())
             .then(data => setrequestfoods(data))
     }, [])
@@ -17,7 +17,7 @@ const Managesingle = () => {
     console.log(findfood)
 
     const handlework = id => {
-        fetch(`http://localhost:5000/requestfoods/${id}`, {
+        fetch(`https://assingment11-projects-server.vercel.app/requestfoods/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -35,7 +35,7 @@ const Managesingle = () => {
                     setload(false)
                 }
             })
-            fetch(`http://localhost:5000/foods/${managefoods._id}`,{
+            fetch(`https://assingment11-projects-server.vercel.app/foods/${managefoods._id}`,{
                 method: 'DELETE',
             })
             .then(res => res.json())

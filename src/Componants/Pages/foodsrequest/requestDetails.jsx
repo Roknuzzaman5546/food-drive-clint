@@ -14,7 +14,7 @@ const RequestDetails = ({ food, filterfoods, setfoods }) => {
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, Cencel it!'
         }).then(() => {
-            fetch(`http://localhost:5000/requestfoods/${id}`, {
+            fetch(`https://assingment11-projects-server.vercel.app/requestfoods/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

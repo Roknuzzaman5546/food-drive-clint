@@ -28,7 +28,7 @@ const Singlefoods = () => {
         const additionalnotes = form.additionalnotes.value;
         const donationmony = form.donationmony.value;
         const requestfoods = { foodphoto, foodname, foodid, donaremail, donarname, requestedPhoto, requestedname, requestedemail, requestdate, pickuplocation, expireddate, additionalnotes, donationmony, status }
-        fetch('http://localhost:5000/requestfoods', {
+        fetch('https://assingment11-projects-server.vercel.app/requestfoods', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

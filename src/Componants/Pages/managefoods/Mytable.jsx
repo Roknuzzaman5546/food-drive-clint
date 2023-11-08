@@ -16,7 +16,7 @@ const Mytable = ({ food, setfoods, filterfoods }) => {
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
         }).then(() => {
-            fetch(`http://localhost:5000/foods/${id}`, {
+            fetch(`https://assingment11-projects-server.vercel.app/foods/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -120,7 +120,7 @@ export default Mytable;
 //     useEffect(() => {
 //         const fetchData = async () => {
 //             try {
-//                 const response = await axios.get('http://localhost:5000/foods');
+//                 const response = await axios.get('https://assingment11-projects-server.vercel.app/foods');
 //                 setData(response.data);
 //                 setLoading(false);
 //             } catch (error) {

@@ -10,8 +10,8 @@ const Banner = () => {
                         <div id="slide1" className="carousel-item relative w-full">
                             <img src={banner1} className="w-full rounded-lg" />
                             <div className="absolute flex items-center left-0 h-full bottom-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)]">
-                                <div className='text-white pl-7 space-y-5'>
-                                    <h2 className=' text-6xl font-bold'>Available Food for   <br />Donation</h2>
+                                <div className='text-white pl-7 md:space-y-5'>
+                                    <h2 className=' text-6xl font-bold'>Available Food for   Donation</h2>
                                     <p>There are many Food of passages of  available, but the majority <br /> have suffered alteration in some form fodd donation</p>
                             <div>
                                 <button className=' btn  btn-error'>Featured Food</button>
@@ -27,7 +27,7 @@ const Banner = () => {
                 <div id="slide2" className="carousel-item relative w-full">
                     <img src={banner2} className="w-full" />
                     <div className="absolute flex items-center left-0 h-full bottom-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)]">
-                        <div className='text-white pl-7 space-y-5'>
+                        <div className='text-white pl md:space-y-5'>
                             <h2 className=' text-6xl font-bold'>Available Food for   <br />Donation</h2>
                             <p>There are many Food of passages of  available, but the majority <br /> have suffered alteration in some form fodd donation</p>
                             <div>
@@ -44,7 +44,7 @@ const Banner = () => {
                 <div id="slide3" className="carousel-item relative w-full">
                     <img src={banner3} className="w-full" />
                     <div className="absolute flex items-center left-0 h-full bottom-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)]">
-                        <div className='text-white pl-7 space-y-5'>
+                        <div className='text-white pl md:space-y-5'>
                             <h2 className=' text-6xl font-bold'>Available Food for   <br />Donation</h2>
                             <p>There are many Food of passages of  available, but the majority <br /> have suffered alteration in some form fodd donation</p>
                             <div>
@@ -61,7 +61,7 @@ const Banner = () => {
                 <div id="slide4" className="carousel-item relative w-full">
                     <img src={banner4} className="w-full" />
                     <div className="absolute flex items-center left-0 h-full bottom-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)]">
-                        <div className='text-white pl-7 space-y-5'>
+                        <div className='text-white pl md:space-y-5'>
                             <h2 className=' text-6xl font-bold'>Available Food for   <br />Donation</h2>
                             <p>There are many Food of passages of  available, but the majority <br /> have suffered alteration in some form fodd donation</p>
                             <div>
