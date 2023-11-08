@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Authcontext } from "../../../Authprovider/Authprovider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const Addfood = () => {
     const { user } = useContext(Authcontext);
@@ -45,7 +46,10 @@ const Addfood = () => {
 
     return (
         <div className=" my-10 bg-blue-400  pb-10 pt-5 rounded-lg">
-            <div className=" text-center">
+            <Helmet>
+                <title>Add foods</title>
+            </Helmet>
+            <div className=" text-center font-rancho">
                 <h2 className=" text-3xl text-gray-700 font-bold ">Add food for donat</h2>
                 <h3 className=" mt-2">Please add your food for poor peapole. becouse they are not eating fulfil <br /> please help them.Its very helpfull work For our country</h3>
             </div>

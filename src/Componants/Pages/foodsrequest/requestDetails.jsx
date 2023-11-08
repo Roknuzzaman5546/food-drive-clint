@@ -35,7 +35,7 @@ const RequestDetails = ({ food, filterfoods, setfoods }) => {
 
     return (
         <tbody>
-            <tr className="bg-base-200">
+            <tr className="bg-base-200 font-bold">
                 <th>{foodname}</th>
                 <td>{pickuplocation}</td>
                 <td>{expireddate}</td>

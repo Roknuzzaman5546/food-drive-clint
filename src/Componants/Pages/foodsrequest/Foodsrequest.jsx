@@ -2,15 +2,19 @@ import { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { Authcontext } from "../../../Authprovider/Authprovider";
 import RequestDetails from "./requestDetails";
+import { Helmet } from "react-helmet";
 
 const Foodsrequest = () => {
     const { user } = useContext(Authcontext)
     const requestfoods = useLoaderData();
     const filterfoods = requestfoods.filter(food => food.requestedemail == user.email)
     const [foods, setfoods] = useState(filterfoods);
-    
+
     return (
-        <div className="my-10">
+        <div className="my-10 font-rancho">
+            <Helmet>
+                <title>My food request</title>
+            </Helmet>
             <div>
                 <h3 className=" text-3xl text-pink-400 font-bold">Your all requested foods</h3>
             </div>
@@ -19,7 +23,7 @@ const Foodsrequest = () => {
                     <table className="table">
                         {/* head */}
                         <thead>
-                            <tr>
+                            <tr className=" text-2xl font-bold">
                                 <th>Foodname</th>
                                 <th>Pickup location</th>
                                 <th>Expired date</th>

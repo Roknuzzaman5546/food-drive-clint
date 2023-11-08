@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Availabledetails from './Availabledetails';
 import { BsSearch, } from "react-icons/bs";
+import { Helmet } from 'react-helmet';
 
 const Availablefoods = () => {
     const [foods, setFoods] = useState([]);
@@ -17,7 +18,7 @@ const Availablefoods = () => {
     const handlesearch = () => {
         console.log('search btn')
         const inputvalue = document.getElementById('src-btn').value;
-        const findfoods = loadfoods.filter(food => food.foodname == inputvalue)
+        const findfoods = foods.filter(food => food.foodname == inputvalue)
         setFoods(findfoods)
     }
 
@@ -29,7 +30,10 @@ const Availablefoods = () => {
 
     return (
         <div className='mt-10'>
-            <div className=" text-center">
+            <Helmet>
+                <title>Available foods</title>
+            </Helmet>
+            <div className=" text-center font-parmanent">
                 <h3 className=" text-3xl font-bold text-orange-400 italic">Avvailavlefoods Foods</h3>
                 <h3>This is our al availablefoods.There are many foods.This is represent the highest <br />quantity of food.If you see all foods click show all button</h3>
             </div>

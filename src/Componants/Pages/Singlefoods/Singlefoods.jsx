@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import { Authcontext } from "../../../Authprovider/Authprovider";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Helmet } from "react-helmet";
 
 
 const Singlefoods = () => {
@@ -47,6 +48,9 @@ const Singlefoods = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Single foods</title>
+            </Helmet>
             <div>
                 <h2 className=" font-bold text-2xl mb-2">Donar</h2>
                 <div className=" flex flex-col items-center">

@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import Mytable from './Mytable';
 import { useLoaderData } from 'react-router-dom';
 import { Authcontext } from '../../../Authprovider/Authprovider';
+import { Helmet } from 'react-helmet';
 
 const MyPage = () => {
   const { user } = useContext(Authcontext);
@@ -13,6 +14,9 @@ const MyPage = () => {
   console.log(foods)
   return (
     <div>
+      <Helmet>
+        <title>Manage foods</title>
+      </Helmet>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
