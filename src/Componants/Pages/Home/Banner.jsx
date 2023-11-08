@@ -1,7 +1,69 @@
-import banner1 from '../../../assets/banner1.jpeg' 
-import banner2 from '../../../assets/banner2.jpeg' 
-import banner3 from '../../../assets/banner3.jpeg' 
-import banner4 from '../../../assets/banner4.jpeg' 
+// import React from 'react';
+// import Carousel from 'react-elastic-carousel'; // Import the Carousel component
+// import 'react-elastic-carousel/dist/styles.css'; // Import the carousel styles
+
+// // Import your banner images
+// import banner1 from '../../../assets/banner1.jpeg';
+// import banner2 from '../../../assets/banner2.jpeg';
+// import banner3 from '../../../assets/banner3.jpeg';
+// import banner4 from '../../../assets/banner4.jpeg';
+
+// const Banner = () => {
+//     // Define your carousel items
+//     const items = [
+//         {
+//             id: 'slide1',
+//             image: banner1,
+//             text: 'Available Food for Donation',
+//         },
+//         {
+//             id: 'slide2',
+//             image: banner2,
+//             text: 'Available Food for Donation',
+//         },
+//         {
+//             id: 'slide3',
+//             image: banner3,
+//             text: 'Available Food for Donation',
+//         },
+//         {
+//             id: 'slide4',
+//             image: banner4,
+//             text: 'Available Food for Donation',
+//         },
+//     ];
+
+//     return (
+//         <div className='mt-10'>
+//             <Carousel>
+//                 {items.map((item) => (
+//                     <div key={item.id} className="carousel-item relative w-full">
+//                         <img src={item.image} className="w-full rounded-lg" />
+//                         <div className="absolute flex items-center left-0 h-full bottom-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)]">
+//                             <div className='text-white pl-7 space-y-5'>
+//                                 <h2 className=' text-6xl font-bold'>{item.text}</h2>
+//                                 <p>There are many Food of passages available, but the majority have suffered alteration in some form of food donation.</p>
+//                                 <div>
+//                                     <button className='btn btn-error'>Featured Food</button>
+//                                     <button className='btn btn-outline ml-2'>Latest Food</button>
+//                                 </div>
+//                             </div>
+//                         </div>
+//                     </div>
+//                 ))}
+//             </Carousel>
+//         </div>
+//     );
+// };
+
+// export default Banner;
+
+
+
+import banner1 from '../../../assets/banner1.jpeg'
+import banner2 from '../../../assets/banner2.jpeg'
+import banner3 from '../../../assets/banner3.jpeg'
+import banner4 from '../../../assets/banner4.jpeg'
 
 const Banner = () => {
     return (

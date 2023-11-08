@@ -5,10 +5,12 @@ import { Authcontext } from '../../../Authprovider/Authprovider';
 
 const MyPage = () => {
   const { user } = useContext(Authcontext);
-  const loaderfoods = useLoaderData();
+  const loaderfoods = useLoaderData([]);
+  console.log(loaderfoods)
   const filterfoods = loaderfoods.filter(food => food.donaremail == user.email)
   const [foods, setfoods] = useState(filterfoods);
 
+  console.log(foods)
   return (
     <div>
       <div className="overflow-x-auto">

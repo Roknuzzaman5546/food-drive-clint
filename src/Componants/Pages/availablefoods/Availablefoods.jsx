@@ -4,9 +4,12 @@ import { BsSearch, } from "react-icons/bs";
 
 const Availablefoods = () => {
     const [foods, setFoods] = useState([]);
+    console.log(foods)
+
+    const url = 'http://localhost:5000/foods';
 
     useEffect(() => {
-        fetch('http://localhost:5000/foods')
+        fetch(url, {Credential: 'include'} )
             .then(res => res.json())
             .then(data => setFoods(data))
     }, [])

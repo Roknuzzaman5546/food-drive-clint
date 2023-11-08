@@ -1,7 +1,9 @@
 import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { Authcontext } from "../../../Authprovider/Authprovider";
-import Swal from "sweetalert2";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Singlefoods = () => {
     const { user } = useContext(Authcontext)
@@ -36,12 +38,7 @@ const Singlefoods = () => {
             .then(data => {
                 console.log(data)
                 if (data.insertedId) {
-                    Swal.fire({
-                        title: 'Request Successfull!',
-                        text: 'Do you want to continue',
-                        icon: 'success',
-                        confirmButtonText: 'Cool'
-                    })
+                    toast('Your request Succesfully adedd')
                     form.reset()
                 }
             })
@@ -166,6 +163,7 @@ const Singlefoods = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };

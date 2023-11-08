@@ -4,13 +4,19 @@ import { Link } from "react-router-dom";
 
 const Featuredfoods = () => {
     const [featuredfoods, setfeaturedfoods] = useState([]);
+    console.log(featuredfoods)
+
+    const url = 'http://localhost:5000/foods';
 
     useEffect(() =>{
-        fetch('http://localhost:5000/foods')
+        fetch(url)
         .then(res => res.json())
         .then(data => setfeaturedfoods(data))
-    }, [])
+    }, [url])
     
+    const sortsfoods = [...featuredfoods].sort((a, b) => b.foodquantity - a.foodquantity);
+    console.log(sortsfoods)
+
     return (
         <div className="mt-10">
             <div className=" text-center">
@@ -19,7 +25,7 @@ const Featuredfoods = () => {
             </div>
             <div className=" grid md:grid-cols-3 grid-cols-1 gap-2 mt-5">
                 {
-                    featuredfoods.slice(0,6).map(foods => <FeaturedfoodsDetails
+                    sortsfoods.slice(0,6).map(foods => <FeaturedfoodsDetails
                     foods={foods}
                     ></FeaturedfoodsDetails>)
                 }

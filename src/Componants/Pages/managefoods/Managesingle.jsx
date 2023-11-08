@@ -14,6 +14,7 @@ const Managesingle = () => {
     }, [])
     
     const findfood = requestfoods?.find(food => food.foodname == managefoods.foodname)
+    console.log(findfood)
 
     const handlework = id => {
         fetch(`http://localhost:5000/requestfoods/${id}`, {
@@ -61,7 +62,7 @@ const Managesingle = () => {
                             </div>
                         </div>
                     </div>
-                    : <div className=" text-3xl font-bold text-pink-400 font-parmanent">Your food has no request submit</div>
+                    : <div className=" text-3xl font-bold text-pink-400 font-parmanent my-20">No one has Requested your Fodds</div>
             }
         </div>
     );
