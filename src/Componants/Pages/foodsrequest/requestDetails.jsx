@@ -1,10 +1,36 @@
 import { useState } from "react";
+import Swal from "sweetalert2";
 
-const RequestDetails = ({ food }) => {
+const RequestDetails = ({ food, filterfoods, setfoods }) => {
     const { _id, foodphoto, foodname, foodid, donaremail, donarname, requestedemail, requestdate, pickuplocation, expireddate, additionalnotes, donationmony, status } = food;
 
-    const handledelet = id =>{
-        console.log('request delelt submit', id)
+    const handledelet = id => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Cencel it!'
+        }).then(() => {
+            fetch(`http://localhost:5000/requestfoods/${id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    if (data.deletedCount > 0) {
+                        Swal.fire(
+                            'Cenceldd!',
+                            'Your file has been Canceld.',
+                            'success'
+                        )
+                    }
+                    const remaing = filterfoods.filter(cof => cof._id !== id)
+                    setfoods(remaing)
+                })
+        })
     }
 
     return (

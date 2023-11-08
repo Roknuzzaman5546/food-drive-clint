@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { Authcontext } from "../../../Authprovider/Authprovider";
 import RequestDetails from "./requestDetails";
@@ -7,6 +7,7 @@ const Foodsrequest = () => {
     const { user } = useContext(Authcontext)
     const requestfoods = useLoaderData();
     const filterfoods = requestfoods.filter(food => food.requestedemail == user.email)
+    const [foods, setfoods] = useState(filterfoods);
     return (
         <div className="my-10">
             <div>
@@ -28,8 +29,11 @@ const Foodsrequest = () => {
                             </tr>
                         </thead>
                         {
-                            filterfoods.map(food => <RequestDetails
+                            foods.map(food => <RequestDetails
+                                key={food._id}
                                 food={food}
+                                setfoods={setfoods}
+                                filterfoods={filterfoods}
                             ></RequestDetails>)
                         }
                     </table>
